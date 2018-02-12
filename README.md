@@ -4,9 +4,9 @@
 
 This repository hosts projects that I've been using as exercises in my Docker training courses. Feel free to use them under the GPLv3 license.
 
-Each directory includes a problem description (README.md), a possible solution for it (`sol` folder) and optionally source files as part of the problem description (`src` folder).
+Each directory includes a problem description (`README.md`), a possible solution for it (`sol` folder) and optionally source files as part of the problem description (`src` folder).
 
-The goal of these projects is to look and find the simplest and feasible solution for the proposed problem. Therefore, features like volumes and container linking are only used if needed or asked for.
+The goal of these projects is to look for and find a simple and feasible solution for the proposed problem. Therefore, features like volumes and container linking are only used if needed or asked for.
 
 ## How to contribute
 
