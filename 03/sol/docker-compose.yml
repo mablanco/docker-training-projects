@@ -1,0 +1,19 @@
+version: '3'
+services:
+  wordpress:
+    image: "wordpress:latest"
+    ports:
+     - "8002:80"
+    depends_on:
+     - mysql
+    environment:
+      WORDPRESS_DB_HOST: mysql:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+  mysql:
+    image: "mysql:latest"
+    environment:
+      MYSQL_ROOT_PASSWORD: wordpressdocker
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
