@@ -33,8 +33,8 @@ This SHOULD NEVER be done in production and/or sensitive environment, where a cr
 5. Deploy a Nginx-based reverse proxy in front of two webservers with different PHP versions.
 6. Deploy a monitoring container that runs 'atop' in the host namespace.
 7. Deploy an Apache webserver with PHP7 support.
-8. Build the image of a Flask app designed to run in a development environment (coming soon).
-9. Deploy the previous Flask app with Docker Compose in production (coming soon).
+8. Build the image of a Flask app to be run in a development environment.
+9. Clone and deploy a CRUD app with Docker Compose in production (coming soon).
 10. Launch automatic tests of endpoints against the previous Flask app (coming soon).
 
 ## License
