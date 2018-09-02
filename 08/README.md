@@ -6,7 +6,7 @@ Python development and testing is eased when we introduce Docker in our toolset.
 
 In this project, you're required to build a Docker image that runs a simple Flask app. Use the provided `app.py` and `requirements.txt` files. The app requires Python 3.6+.
 
-Test the app by making a GET request to http://localhost:5000/. You should receive `Hello World` as answer.`
+Test the app by making a GET request to http://localhost:5000/. You should receive `Hello World` as answer.
 
 
 ## Deliverables
