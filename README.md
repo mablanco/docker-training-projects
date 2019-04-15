@@ -36,6 +36,7 @@ This SHOULD NEVER be done in production and/or sensitive environment, where a cr
 8. Build the image of a Flask app to be run in a development environment.
 9. Clone and deploy a CRUD app, based on Flask and Vue.js, with Docker Compose in production (work in progress).
 10. Launch automatic tests of endpoints against the previous Flask app (coming soon).
+11. Design a multi-stage image that builds and deploys a simple Golang app.
 
 ## License
 
