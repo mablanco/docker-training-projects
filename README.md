@@ -34,7 +34,7 @@ This SHOULD NEVER be done in production and/or sensitive environment, where a cr
 6. Deploy a monitoring container that runs 'atop' in the host namespace.
 7. Deploy an Apache webserver with PHP7 support.
 8. Build the image of a Flask app to be run in a development environment.
-9. Clone and deploy a CRUD app, based on Flask and Vue.js, with Docker Compose in production (work inprogress).
+9. Clone and deploy a CRUD app, based on Flask and Vue.js, with Docker Compose in production (work in progress).
 10. Launch automatic tests of endpoints against the previous Flask app (coming soon).
 
 ## License
