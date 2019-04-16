@@ -6,7 +6,7 @@ When deploying a Python app in production, you should never use the Python inter
 
 In this project, you're required to deploy a CRUD app based on Flask and Vue.js. Clone the app from the <https://github.com/testdrivenio/flask-vue-crud> Github repo.
 
-Test the app by opening <http://localhost:8080/books> in your browser. You should see a list of books. Then, try to add and delete some entries.
+Test the app by opening <http://localhost:8080/> in your browser. You should see a book collection's management webapp. Then, try to add and delete some entries.
 
 ## Deliverables
 
