@@ -1,0 +1,16 @@
+---
+- config:
+    - testset: "CRUD app tests"
+
+- test:
+    - group: "CRUD tests"
+    - name: "Get books"
+    - url: "/books"
+
+- test:
+    - group: "CRUD tests"
+    - name: "Add a book"
+    - url: "/books"
+    - method: "POST"
+    - body: '{"title": "1Q84", "author": "Haruki Murakami", "read": "true"}'
+    - headers: {'Content-Type': 'application/json'}
