@@ -1,4 +1,4 @@
-FROM python:3.6-alpine3.6
+FROM python:3.7.3-alpine
 RUN pip install gunicorn
 RUN apk add --update --no-cache subversion && \
     rm -rf /var/cache/apk/*
