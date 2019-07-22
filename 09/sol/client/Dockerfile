@@ -8,4 +8,4 @@ RUN grep -r -H "localhost:5000" * | cut -f 1 -d ":" | xargs sed -i 's/localhost\
 RUN npm install
 EXPOSE 8080
 ENV HOST='0.0.0.0'
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "serve"]
