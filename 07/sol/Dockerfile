@@ -1,4 +1,4 @@
-FROM debian:9-slim
+FROM debian:11-slim
 RUN apt-get update && \
     apt-get upgrade && \
     apt-get -y install apache2 php7.0 && \
