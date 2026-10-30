@@ -1,4 +1,4 @@
-FROM python:2.7.16-alpine3.9
+FROM python:3.7.6-alpine3.9
 RUN apk add --no-cache --update libcurl && \
     apk add --no-cache --update --virtual .build-deps curl-dev python-dev build-base
 RUN pip install pyresttest
