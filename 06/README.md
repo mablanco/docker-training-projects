@@ -1,15 +1,23 @@
-# Project 06
+# Exercise 06
+
+**Level:** Intermediate · **Concepts:** namespaces, `--pid host`
 
 ## Problem definition
 
-Monitoring has always been one of the most outstanding tasks in the daily tasks of a sysadmin, but its importance is usually neglected. Nowadays, thanks to the DevOps movement, monitoring is getting more and more visibility and is currently regarded as one of the basic pillars in any IT infrastructure.
+Monitoring has always been one of the most important daily tasks of a sysadmin, but its importance is often neglected. Thanks to the DevOps movement, monitoring now gets much more attention and is regarded as one of the basic pillars of any IT infrastructure.
 
-There are many CLI monitoring tools that are so nice and powerful that you'd like to have them available for each and every platform under your management. However, because of the inherent heterogeneity of any IT system, made up of on-premise servers, cloud instances, network devices, etc., this is not usually possible.
+There are many CLI monitoring tools so useful that you'd like to have them available on every platform you manage. However, IT systems are heterogeneous (on-premise servers, cloud instances, network devices…), so this is not usually possible.
 
-Docker to the rescue! Today, Docker is supported by many platforms, even by several networking brands. That way, you could build a monitoring container that includes your favourite CLI tools and deploy them wherever you need them.
+Docker to the rescue! Docker runs on many platforms, so you can build a monitoring image that includes your favourite CLI tools and run it wherever you need it.
 
-In this project, your task is to design and build an image that hosts several monitoring tools from the `*top` family. Then, deploy a container that, by default, runs `atop` in the host namespace.
+In this exercise, your task is to design and build an image that includes several monitoring tools from the `*top` family. Then, run a container that, by default, runs `atop` in the host PID namespace, so it shows the host's processes instead of only the container's.
 
 ## Deliverables
 
-A Dockerfile for the image and a shell script to build and run the container.
+A Dockerfile for the image and a shell script (`run.sh`) to build and run the container.
+
+## How to check your solution
+
+Run your script. `atop` should start and list the host's processes (for example, your Docker daemon or your desktop applications), not just `atop` itself. Press `q` to quit.
+
+`sol/test.sh` checks this automatically for the reference solution.

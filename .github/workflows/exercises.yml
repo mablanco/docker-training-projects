@@ -1,0 +1,41 @@
+name: Exercises
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  schedule:
+    # Weekly, to catch solutions broken by new upstream releases.
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+jobs:
+  solution:
+    name: Exercise ${{ matrix.exercise }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # Add each exercise here once its solution has a test.sh.
+        exercise:
+          - '06'
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Lint Dockerfiles
+        run: |
+          find ${{ matrix.exercise }}/sol -name Dockerfile | while read -r f; do
+            echo "$f"
+            docker run --rm -i -v "$PWD/.hadolint.yaml:/.config/hadolint.yaml:ro" hadolint/hadolint:v2.15.1 < "$f"
+          done
+
+      - name: Validate Compose files
+        run: |
+          find ${{ matrix.exercise }}/sol \( -name 'compose.yaml' -o -name 'docker-compose.yml' \) -print0 \
+            | xargs -0 -r -I{} docker compose -f {} config --quiet
+
+      - name: Test solution
+        run: ${{ matrix.exercise }}/sol/test.sh
