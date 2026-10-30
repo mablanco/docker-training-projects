@@ -1,0 +1,6 @@
+# Pinning every apt/apk package version makes the exercises harder to read
+# and to keep up to date, so the solutions only pin base image tags.
+ignored:
+  - DL3008
+  - DL3018
+failure-threshold: warning

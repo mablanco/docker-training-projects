@@ -1,4 +1,3 @@
-FROM alpine:latest
-RUN apk add --update --no-cache atop htop iftop && \
-rm -rf /var/cache/apk/*
+FROM alpine:3.24.3
+RUN apk add --no-cache atop htop iftop
 CMD ["atop"]
