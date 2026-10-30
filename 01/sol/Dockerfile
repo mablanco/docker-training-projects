@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:25.10
 RUN echo 'mysql-server mysql-server/root_password password secretpw' | \
 debconf-set-selections && \
 echo 'mysql-server mysql-server/root_password_again password secretpw' | \
