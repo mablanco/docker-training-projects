@@ -1,4 +1,4 @@
-FROM debian:8
+FROM debian:11
 RUN apt-get update && apt-get -y install \
 apache2 \
 php5
