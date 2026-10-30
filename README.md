@@ -1,74 +1,74 @@
-# Proyectos de formación en Docker
+# Docker training projects
 
-Ejercicios prácticos para aprender Docker resolviendo problemas pequeños y realistas. Están pensados tanto para quien aprende Docker por su cuenta como para docentes que quieran ejercicios listos para sus cursos. Todo se publica bajo licencia GPLv3, así que puedes usarlo y adaptarlo libremente.
+Hands-on exercises to learn Docker by solving small, realistic problems. They are meant both for people learning Docker on their own and for teachers who want ready-made exercises for their courses. Everything is licensed under GPLv3, so feel free to use and adapt it.
 
-> **En proceso de actualización:** los ejercicios son de 2019 y se están poniendo al día, uno a uno, con las prácticas actuales de Docker. Los que llevan ✅ en el índice ya están actualizados y la CI los comprueba cada semana.
+> **Work in progress:** the exercises date from 2019 and are being updated to current Docker practices one by one. The ones marked ✅ in the index below are already updated and tested in CI every week.
 
-## Cómo se organiza cada ejercicio
+## How each exercise is organized
 
-Cada ejercicio está en un directorio numerado:
+Each exercise lives in a numbered directory:
 
-- `README.md`: el problema que hay que resolver, los entregables y cómo comprobar que la solución funciona.
-- `src/` (opcional): ficheros de partida.
-- `sol/`: una posible solución. Normalmente hay varias válidas, así que tómala como referencia, no como la única respuesta.
-- `sol/test.sh`: un script que construye y ejecuta la solución y comprueba que funciona. La CI lo ejecuta en cada cambio.
+- `README.md`: the problem to solve, the deliverables, and how to check that your solution works.
+- `src/` (optional): files you start from.
+- `sol/`: one possible solution. There are usually several valid ones, so treat it as a reference, not as the only answer.
+- `sol/test.sh`: a script that builds and runs the solution and checks that it works. CI runs it on every change.
 
-El objetivo es encontrar una solución sencilla y que funcione para el problema tal y como se plantea. Recursos como los volúmenes o contenedores adicionales solo hacen falta si el problema los pide.
+The goal is to find a simple, working solution to the problem as stated. Features like volumes or extra containers are only needed when the problem asks for them.
 
-## Requisitos
+## Requirements
 
-- Docker Engine con el plugin de Compose (`docker compose`), o Docker Desktop.
-- Bash, para ejecutar los scripts `run.sh` y `test.sh`.
-- Conexión a internet, para descargar imágenes y paquetes.
+- Docker Engine with the Compose plugin (`docker compose`), or Docker Desktop.
+- Bash, to run the `run.sh` and `test.sh` scripts.
+- An internet connection, to pull images and packages.
 
-## Para alumnos
+## For learners
 
-1. Elige un ejercicio del índice. El nivel da una idea del orden, pero los ejercicios encadenados (02 → 03, 08 → 09 → 10) se apoyan unos en otros.
-2. Lee su `README.md` e intenta resolverlo sin mirar `sol/`.
-3. Comprueba tu solución con los pasos que indica el README del ejercicio.
-4. Compárala con la de `sol/`. Si la tuya es distinta pero funciona, perfecto.
+1. Pick an exercise from the index. The level gives an idea of the order, but the exercises in a sequence (02 → 03, 08 → 09 → 10) build on each other.
+2. Read its `README.md` and try to solve it without looking at `sol/`.
+3. Check your solution with the steps in the exercise's README.
+4. Compare it with the one in `sol/`. If yours is different but works, that's fine.
 
-## Para docentes
+## For teachers
 
-- Cada ejercicio es independiente y se puede repartir tal cual: basta con dar al alumnado el `README.md` y el directorio `src/` del ejercicio.
-- La columna de conceptos del índice ayuda a elegir ejercicios para los temas de cada sesión.
-- `sol/test.sh` comprueba una solución automáticamente. Puedes adaptarlo para comprobar las soluciones de tus alumnos.
-- Las sugerencias y los ejercicios nuevos son bienvenidos (consulta [Cómo contribuir](#cómo-contribuir)).
+- Each exercise is self-contained and can be handed out as is: give students the exercise's `README.md` and `src/` directory.
+- The concepts column in the index helps to match exercises to the topics of each session.
+- `sol/test.sh` checks a solution automatically. You can adapt it to check your students' solutions.
+- Suggestions and new exercises are welcome (see [How to contribute](#how-to-contribute)).
 
-## Índice de ejercicios
+## Index of exercises
 
-| # | Ejercicio | Nivel | Conceptos | Actualizado |
-|---|-----------|-------|-----------|-------------|
-| [01](01) | Arreglar el build de una imagen con una instalación completa de WordPress | Básico | Dockerfile, interpretar errores de build | |
-| [02](02) | Desplegar WordPress y MySQL en dos contenedores | Básico | Imágenes oficiales, redes, variables de entorno | |
-| [03](03) | Orquestar el ejercicio 02 con Docker Compose | Básico | Docker Compose | |
-| [04](04) | Desplegar un entorno de desarrollo y pruebas de Magento 2 (se sustituirá por Nextcloud) | Avanzado | Construir la imagen de una aplicación PHP compleja | |
-| [05](05) | Desplegar un proxy inverso Nginx delante de dos servidores web con distintas versiones de PHP | Intermedio | Varias imágenes, redes, proxy inverso | |
-| [06](06) | Construir una imagen de monitorización que ejecute `atop` en el espacio de nombres de PID del host | Intermedio | Espacios de nombres, `--pid host` | ✅ |
-| [07](07) | Construir la imagen de un servidor web Apache con soporte de PHP | Básico | Dockerfile, volúmenes | |
-| [08](08) | Construir la imagen de una aplicación Flask para un entorno de desarrollo | Básico | Imágenes de lenguajes, dependencias | |
-| [09](09) | Desplegar en producción una aplicación CRUD basada en Flask y Vue.js con Docker Compose | Avanzado | Varias imágenes, servidores de producción, Docker Compose | |
-| [10](10) | Probar los endpoints de la aplicación del ejercicio 09 (pasará de pyresttest a Hurl) | Intermedio | Imágenes de herramientas, pruebas de APIs | |
-| [11](11) | Diseñar una imagen multi-stage que compile y ejecute una aplicación sencilla en Go | Intermedio | Builds multi-stage, imágenes mínimas | |
+| # | Exercise | Level | Concepts | Updated |
+|---|----------|-------|----------|---------|
+| [01](01) | Fix the build of an image of a complete WordPress installation | Beginner | Dockerfile, reading build errors | |
+| [02](02) | Deploy WordPress and MySQL in two containers | Beginner | Official images, networks, environment variables | |
+| [03](03) | Orchestrate exercise 02 with Docker Compose | Beginner | Docker Compose | |
+| [04](04) | Deploy a development/testing environment for Magento 2 (to be replaced by Nextcloud) | Advanced | Building a complex PHP app image | |
+| [05](05) | Deploy an Nginx reverse proxy in front of two web servers with different PHP versions | Intermediate | Several images, networks, reverse proxy | |
+| [06](06) | Build a monitoring image that runs `atop` in the host PID namespace | Intermediate | Namespaces, `--pid host` | ✅ |
+| [07](07) | Build an Apache web server image with PHP support | Beginner | Dockerfile, volumes | |
+| [08](08) | Build the image of a Flask app for a development environment | Beginner | Language images, dependencies | |
+| [09](09) | Deploy a CRUD app based on Flask and Vue.js with Docker Compose in production | Advanced | Several images, production servers, Docker Compose | |
+| [10](10) | Test the endpoints of the exercise 09 app (moving from pyresttest to Hurl) | Intermediate | Tooling images, testing APIs | |
+| [11](11) | Design a multi-stage image that builds and runs a simple Go app | Intermediate | Multi-stage builds, minimal images | |
 
-## Nota sobre seguridad
+## Note on security
 
-Para no desviar la atención del problema que se resuelve, las contraseñas y credenciales de estos ejercicios están escritas en claro.
+To keep the focus on the problem being solved, passwords and credentials in these exercises are written in clear text.
 
-No lo hagas nunca en producción ni en ningún entorno sensible. Usa en su lugar una solución de gestión de secretos, como los secretos de Docker, los secretos de build de BuildKit, HashiCorp Vault o el gestor de secretos de tu proveedor cloud.
+Never do this in production or in any sensitive environment. Use a secrets management solution instead, such as Docker secrets, BuildKit build secrets, HashiCorp Vault or your cloud provider's secret manager.
 
-## Cómo contribuir
+## How to contribute
 
-Los ejercicios nuevos y las mejoras son bienvenidos. Para mantener la coherencia del repositorio:
+New exercises and improvements are welcome. To keep the repository consistent:
 
-1. Crea un directorio con el número siguiente al último que haya en el repositorio.
-2. Añade un `README.md` con el problema, los entregables esperados y cómo comprobar la solución. Usa un ejercicio existente como plantilla.
-3. Añade los ficheros de partida en `src/` y una solución que funcione en `sol/`.
-4. Añade un script `sol/test.sh` que construya y ejecute la solución y falle si no funciona, y añade el ejercicio a la matriz de `.github/workflows/exercises.yml`.
-5. Añade el ejercicio al índice de arriba, con tu nombre y un email o URL de contacto entre paréntesis.
+1. Create a directory named with the next number after the last one in the repository.
+2. Add a `README.md` with the problem, the expected deliverables and how to check the solution. Use an existing exercise as a template.
+3. Add any starting files in `src/` and a working solution in `sol/`.
+4. Add a `sol/test.sh` script that builds and runs the solution and fails if it doesn't work, and add the exercise to the matrix in `.github/workflows/exercises.yml`.
+5. Add the exercise to the index above, with your name and a contact email or URL in parentheses.
 
-Los Dockerfiles de las soluciones se validan con [hadolint](https://github.com/hadolint/hadolint) usando las reglas de `.hadolint.yaml`.
+Solution Dockerfiles are linted with [hadolint](https://github.com/hadolint/hadolint) using the rules in `.hadolint.yaml`.
 
-## Licencia
+## License
 
 GPLv3

@@ -1,6 +1,5 @@
-# Fijar la versión de cada paquete de apt/apk hace que los ejercicios sean
-# más difíciles de leer y de mantener, así que las soluciones solo fijan la
-# etiqueta de la imagen base.
+# Pinning every apt/apk package version makes the exercises harder to read
+# and to keep up to date, so the solutions only pin base image tags.
 ignored:
   - DL3008
   - DL3018

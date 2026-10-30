@@ -1,23 +1,23 @@
-# Ejercicio 06
+# Exercise 06
 
-**Nivel:** Intermedio · **Conceptos:** espacios de nombres, `--pid host`
+**Level:** Intermediate · **Concepts:** namespaces, `--pid host`
 
-## Planteamiento
+## Problem definition
 
-La monitorización siempre ha sido una de las tareas diarias más importantes de un administrador de sistemas, aunque a menudo se descuida. Gracias al movimiento DevOps, hoy recibe mucha más atención y se considera uno de los pilares básicos de cualquier infraestructura de TI.
+Monitoring has always been one of the most important daily tasks of a sysadmin, but its importance is often neglected. Thanks to the DevOps movement, monitoring now gets much more attention and is regarded as one of the basic pillars of any IT infrastructure.
 
-Hay herramientas de monitorización de línea de comandos tan útiles que querrías tenerlas disponibles en todas las plataformas que gestionas. Sin embargo, los sistemas de TI son heterogéneos (servidores propios, instancias en la nube, dispositivos de red…), así que normalmente no es posible.
+There are many CLI monitoring tools so useful that you'd like to have them available on every platform you manage. However, IT systems are heterogeneous (on-premise servers, cloud instances, network devices…), so this is not usually possible.
 
-¡Docker al rescate! Docker funciona en muchas plataformas, así que puedes construir una imagen de monitorización con tus herramientas favoritas y ejecutarla donde la necesites.
+Docker to the rescue! Docker runs on many platforms, so you can build a monitoring image that includes your favourite CLI tools and run it wherever you need it.
 
-En este ejercicio tienes que diseñar y construir una imagen que incluya varias herramientas de monitorización de la familia `*top`. Después, ejecuta un contenedor que, por defecto, lance `atop` en el espacio de nombres de PID del host, de modo que muestre los procesos del host y no solo los del contenedor.
+In this exercise, your task is to design and build an image that includes several monitoring tools from the `*top` family. Then, run a container that, by default, runs `atop` in the host PID namespace, so it shows the host's processes instead of only the container's.
 
-## Entregables
+## Deliverables
 
-Un Dockerfile para la imagen y un script de shell (`run.sh`) que construya la imagen y ejecute el contenedor.
+A Dockerfile for the image and a shell script (`run.sh`) to build and run the container.
 
-## Cómo comprobar la solución
+## How to check your solution
 
-Ejecuta tu script. `atop` debería arrancar y mostrar los procesos del host (por ejemplo, el demonio de Docker o tus aplicaciones de escritorio), no solo el propio `atop`. Pulsa `q` para salir.
+Run your script. `atop` should start and list the host's processes (for example, your Docker daemon or your desktop applications), not just `atop` itself. Press `q` to quit.
 
-`sol/test.sh` lo comprueba automáticamente con la solución de referencia.
+`sol/test.sh` checks this automatically for the reference solution.
