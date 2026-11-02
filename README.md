@@ -50,6 +50,7 @@ The goal is to find a simple, working solution to the problem as stated. Feature
 | [09](09) | Deploy a CRUD app based on Flask and Vue.js with Docker Compose in production | Advanced | Multi-stage builds, production servers, reverse proxy, Docker Compose |
 | [10](10) | Test the API of the exercise 09 app with Hurl | Intermediate | Tooling images, `ENTRYPOINT` and `CMD`, container networking |
 | [11](11) | Design a multi-stage image that builds and runs a simple Go app | Intermediate | Multi-stage builds, minimal images, non-root users |
+| [12](12) | Make an Nginx image run without root, capabilities or a writable filesystem | Intermediate | Non-root users, read-only filesystems, Linux capabilities |
 
 ## Note on security
 
