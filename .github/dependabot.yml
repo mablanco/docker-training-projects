@@ -20,3 +20,9 @@ updates:
       - "/09/sol"
     schedule:
       interval: "weekly"
+    ignore:
+      # MySQL's major versions alternate between LTS and Innovation releases
+      # (8.4 LTS, 9.7 LTS, 26.x Innovation...). Moving to the next LTS is
+      # done by hand; dependabot only proposes patch and minor updates.
+      - dependency-name: "mysql"
+        update-types: ["version-update:semver-major"]

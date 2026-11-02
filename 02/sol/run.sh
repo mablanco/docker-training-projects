@@ -13,7 +13,7 @@ docker run -d --name mysqlwp --network wordpress \
   -e MYSQL_DATABASE=wordpress \
   -e MYSQL_USER=wordpress \
   -e MYSQL_PASSWORD=wordpress \
-  mysql:8.4.13
+  mysql:9.7.4
 
 # On a user-defined network, containers reach each other by name, so the
 # database host is just "mysqlwp".
