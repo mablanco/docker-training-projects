@@ -4,11 +4,12 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-  # Only the exercises that are already updated. Add each exercise's
-  # directories with Dockerfiles, Compose files or dependency files here
-  # when it is updated, as in the CI matrix.
+  # Add the directories of each new exercise with Dockerfiles, Compose
+  # files or dependency files here, as in the CI matrix. Exercise 01 is left
+  # out on purpose: its Ubuntu base must stay on an LTS release.
   - package-ecosystem: "docker"
     directories:
+      - "/04/sol"
       - "/05/sol/*"
       - "/06/sol"
       - "/07/sol"
@@ -21,7 +22,9 @@ updates:
       interval: "weekly"
     ignore:
       # Exercise 05 compares two specific PHP versions, so dependabot must
-      # not move one onto the other. Changing them is done by hand.
+      # not move one onto the other, and exercise 04 must stay within the
+      # PHP versions that its Nextcloud release supports. Changing them is
+      # done by hand.
       - dependency-name: "php"
         update-types: ["version-update:semver-major", "version-update:semver-minor"]
   - package-ecosystem: "pip"
@@ -32,6 +35,7 @@ updates:
   - package-ecosystem: "docker-compose"
     directories:
       - "/03/sol"
+      - "/04/sol"
       - "/09/sol"
     schedule:
       interval: "weekly"
@@ -40,4 +44,8 @@ updates:
       # (8.4 LTS, 9.7 LTS, 26.x Innovation...). Moving to the next LTS is
       # done by hand; dependabot only proposes patch and minor updates.
       - dependency-name: "mysql"
+        update-types: ["version-update:semver-major"]
+      # Nextcloud supports specific MariaDB releases, so moving to the next
+      # major version is done by hand after checking its requirements.
+      - dependency-name: "mariadb"
         update-types: ["version-update:semver-major"]
