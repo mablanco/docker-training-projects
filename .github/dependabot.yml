@@ -26,6 +26,7 @@ updates:
       - "/14/sol"
       - "/15/src"
       - "/15/sol"
+      - "/16/sol"
     schedule:
       interval: "weekly"
     ignore:
@@ -38,6 +39,7 @@ updates:
   - package-ecosystem: "pip"
     directories:
       - "/08/src"
+      - "/16/sol"
     schedule:
       interval: "weekly"
   - package-ecosystem: "npm"

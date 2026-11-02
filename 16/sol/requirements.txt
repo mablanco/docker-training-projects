@@ -1,0 +1,4 @@
+# requests was never used by the app, so it is gone: every dependency you do
+# not need is attack surface you do not have to patch
+Flask==3.1.3
+gunicorn==26.2.0
