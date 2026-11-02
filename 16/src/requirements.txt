@@ -1,4 +1,4 @@
 Flask==2.0.1
-Werkzeug==2.0.1
+Werkzeug==3.1.9
 Jinja2==3.0.1
 requests==2.25.1
