@@ -1,0 +1,11 @@
+# A private artifact server: it only answers requests with the right token
+server {
+    listen 80;
+    root /usr/share/nginx/html;
+
+    location / {
+        if ($http_authorization != "Bearer ${ARTIFACTS_TOKEN}") {
+            return 401;
+        }
+    }
+}
