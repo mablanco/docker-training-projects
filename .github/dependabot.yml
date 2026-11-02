@@ -4,14 +4,10 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+  # Only the exercises that are already updated. Add each exercise's
+  # solution directories here when it is updated, as in the CI matrix.
   - package-ecosystem: "docker"
     directories:
-      - "/*/sol"
-      - "/*/sol/*"
-    schedule:
-      interval: "weekly"
-  - package-ecosystem: "docker-compose"
-    directories:
-      - "/*/sol"
+      - "/06/sol"
     schedule:
       interval: "weekly"
