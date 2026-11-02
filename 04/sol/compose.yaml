@@ -31,9 +31,13 @@ services:
   cron:
     <<: *nextcloud
     command: ["cron"]
-    # The image healthcheck tests Apache, which does not run here
+    # The image healthcheck tests Apache, which does not run here. Check
+    # instead that the background jobs ran in the last 10 minutes.
     healthcheck:
-      disable: true
+      test: ["CMD-SHELL", "[ $$(( $$(date +%s) - $$(runuser -u www-data -- php /var/www/html/occ config:app:get core lastcron || echo 0) )) -lt 600 ]"]
+      interval: 1m
+      start_period: 10m
+      start_interval: 10s
     depends_on:
       app:
         condition: service_healthy

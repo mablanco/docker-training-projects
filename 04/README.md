@@ -27,9 +27,9 @@ A `Dockerfile`, the scripts and configuration files it needs, and a `compose.yam
 
 ## How to check your solution
 
-1. Run `docker compose up -d --build --wait`. The first start takes a minute or two, while Nextcloud installs itself.
+1. Run `docker compose up -d --build --wait`. The first start takes a few minutes: Nextcloud installs itself, and then the first run of the background jobs has to finish.
 2. Open <http://localhost:8004> and log in with the admin account. Upload a file.
-3. Go to *Administration settings → Overview*. There should be no errors. Without HTTPS, a warning about the `Strict-Transport-Security` header is expected. The background jobs warning goes away a few minutes after the first start.
+3. Go to *Administration settings → Overview*. There should be no errors. Without HTTPS, a warning about the `Strict-Transport-Security` header is expected.
 4. Run `docker compose down` and `docker compose up -d --wait`. Nextcloud must start without installing itself again, and your file must still be there.
 5. When you are done, run `docker compose down -v --rmi local`.
 
