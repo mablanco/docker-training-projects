@@ -24,6 +24,8 @@ updates:
       - "/13/sol"
       - "/14/src"
       - "/14/sol"
+      - "/15/src"
+      - "/15/sol"
     schedule:
       interval: "weekly"
     ignore:
