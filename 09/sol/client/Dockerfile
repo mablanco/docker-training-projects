@@ -1,5 +1,5 @@
 # Build stage: compile the Vue app into static files.
-FROM node:24.22.2-alpine3.24 AS build
+FROM node:26.13.0-alpine3.24 AS build
 ADD https://github.com/testdrivenio/flask-vue-crud.git#be91da59a10d07384537c2f76f4505eb344d1682:client /app
 WORKDIR /app
 # The app calls the API at http://localhost:5001. Point it to /api on the
