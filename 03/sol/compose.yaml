@@ -1,0 +1,38 @@
+name: wordpress
+
+services:
+  wordpress:
+    image: wordpress:7.1.4-php8.4-apache
+    ports:
+      - "8003:80"
+    environment:
+      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+    depends_on:
+      # Wait until MySQL accepts connections, not just until its container
+      # has started.
+      mysql:
+        condition: service_healthy
+
+  mysql:
+    image: mysql:8.4.13
+    environment:
+      MYSQL_ROOT_PASSWORD: wordpressdocker
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+    volumes:
+      - db-data:/var/lib/mysql
+    healthcheck:
+      # Over TCP on purpose: while MySQL initializes the database on first
+      # start, it only listens on its socket.
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "--silent"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 10s
+
+volumes:
+  db-data:

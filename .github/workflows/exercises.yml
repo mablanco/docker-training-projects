@@ -22,6 +22,7 @@ jobs:
         # Add each exercise here once its solution has a test.sh.
         exercise:
           - '02'
+          - '03'
           - '06'
     steps:
       - uses: actions/checkout@v7

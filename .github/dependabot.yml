@@ -5,9 +5,15 @@ updates:
     schedule:
       interval: "weekly"
   # Only the exercises that are already updated. Add each exercise's
-  # solution directories here when it is updated, as in the CI matrix.
+  # solution directories here (Dockerfiles and Compose files) when it is
+  # updated, as in the CI matrix.
   - package-ecosystem: "docker"
     directories:
       - "/06/sol"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "docker-compose"
+    directories:
+      - "/03/sol"
     schedule:
       interval: "weekly"
