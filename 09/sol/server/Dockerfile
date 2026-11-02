@@ -1,4 +1,4 @@
-FROM python:3.14.10-alpine3.24
+FROM python:3.15.0-alpine3.24
 
 # The app, pinned to the last commit of its repository.
 ADD https://github.com/testdrivenio/flask-vue-crud.git#be91da59a10d07384537c2f76f4505eb344d1682:server /app
