@@ -1,25 +1,34 @@
-FROM debian:9
-RUN apt-get update && \
-apt-get -y install \
-apache2 \
-php7.0 \
-php7.0-mysql php7.0-intl php7.0-xsl php7.0-gd php7.0-mcrypt \
-php7.0-curl php7.0-mbstring php7.0-soap php7.0-zip \
-composer \
-wget && \
-rm /var/www/html/index.html
-RUN wget -q https://api.github.com/repos/magento/magento2/releases/latest -O - \
-| grep tarball_url | cut -d : -f 2,3 | tr -d \", \
-| wget -qi - -O - \
-| tar --strip-components=1 -xzC /var/www/html/
-RUN cd /var/www/html && \
-composer install && \
-chown -R www-data:www-data /var/www/html
-RUN a2enmod rewrite
-COPY install-magento.sh /usr/local/bin/
-RUN chmod +x /usr/local/bin/install-magento.sh
-COPY magento.conf /etc/apache2/sites-available
-RUN a2ensite magento && a2dissite 000-default
-WORKDIR /var/www/html
-EXPOSE 80
-CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
+# Download and verify the release in a separate stage, so the tarball does
+# not end up in any layer of the final image.
+FROM alpine:3.24.3 AS download
+ARG NEXTCLOUD_VERSION=35.0.2
+ADD --checksum=sha256:dfc7955eaec5621de90e031d10f76006173b3f3e31d5d6e174821d1da14f162d \
+    https://download.nextcloud.com/server/releases/nextcloud-${NEXTCLOUD_VERSION}.tar.bz2 /nextcloud.tar.bz2
+RUN tar -xjf /nextcloud.tar.bz2 \
+ && mkdir /nextcloud/data
+
+FROM php:8.4.27-apache-trixie
+
+# PHP extensions required and recommended by Nextcloud. The installer also
+# installs the libraries they need and removes the build dependencies.
+COPY --from=mlocati/php-extension-installer:2.13.1 /usr/bin/install-php-extensions /usr/local/bin/
+RUN install-php-extensions apcu bcmath exif gd gmp intl opcache pcntl pdo_mysql redis sysvsem zip
+
+COPY nextcloud.ini "$PHP_INI_DIR/conf.d/"
+COPY apache-nextcloud.conf /etc/apache2/conf-available/nextcloud.conf
+RUN cp "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini" \
+ && a2enmod headers rewrite \
+ && a2enconf nextcloud
+
+COPY --from=download --chown=www-data:www-data /nextcloud /var/www/html
+COPY docker-entrypoint.sh /usr/local/bin/
+
+# The code comes from the image, while the configuration and the files
+# uploaded by the users live in volumes.
+VOLUME ["/var/www/html/config", "/var/www/html/data"]
+
+HEALTHCHECK --interval=10s --start-period=5m \
+  CMD ["sh", "-c", "curl -fsS http://localhost/status.php | grep -q '\"installed\":true'"]
+
+ENTRYPOINT ["docker-entrypoint.sh"]
+CMD ["apache2-foreground"]
