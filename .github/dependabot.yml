@@ -20,6 +20,8 @@ updates:
       - "/11/sol"
       - "/12/src"
       - "/12/sol"
+      - "/13/src/app"
+      - "/13/sol"
     schedule:
       interval: "weekly"
     ignore:
