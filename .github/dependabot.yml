@@ -10,6 +10,7 @@ updates:
   - package-ecosystem: "docker"
     directories:
       - "/06/sol"
+      - "/07/sol"
       - "/08/sol"
       - "/09/sol/client"
       - "/09/sol/server"
