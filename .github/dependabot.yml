@@ -37,6 +37,11 @@ updates:
       # done by hand.
       - dependency-name: "php"
         update-types: ["version-update:semver-major", "version-update:semver-minor"]
+      # Python tags include alphas and release candidates of the next minor
+      # version (3.16.0a1...), which dependabot proposes as updates. Moving to
+      # a new Python minor version is done by hand once it is released.
+      - dependency-name: "python"
+        update-types: ["version-update:semver-major", "version-update:semver-minor"]
   - package-ecosystem: "pip"
     directories:
       - "/08/src"
