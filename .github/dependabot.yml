@@ -5,8 +5,9 @@ updates:
     schedule:
       interval: "weekly"
   # Add the directories of each new exercise with Dockerfiles, Compose
-  # files or dependency files here, as in the CI matrix. Exercise 01 is left
-  # out on purpose: its Ubuntu base must stay on an LTS release.
+  # files or dependency files here, as in the CI matrix. Left out on
+  # purpose: exercise 01, whose Ubuntu base must stay on an LTS release, and
+  # 16/src, which must stay old and vulnerable.
   - package-ecosystem: "docker"
     directories:
       - "/04/sol"
@@ -26,6 +27,7 @@ updates:
       - "/14/sol"
       - "/15/src"
       - "/15/sol"
+      - "/16/sol"
     schedule:
       interval: "weekly"
     ignore:
@@ -38,6 +40,7 @@ updates:
   - package-ecosystem: "pip"
     directories:
       - "/08/src"
+      - "/16/sol"
     schedule:
       interval: "weekly"
   - package-ecosystem: "npm"

@@ -54,6 +54,7 @@ The goal is to find a simple, working solution to the problem as stated. Feature
 | [13](13) | Use a token during a build without leaving it in the image | Intermediate | BuildKit build secrets, build arguments, image history |
 | [14](14) | Speed up the build of a Node.js app | Intermediate | Layer caching, `.dockerignore`, BuildKit cache mounts, production dependencies |
 | [15](15) | Build and publish a Go image for amd64 and arm64 | Advanced | Multi-platform images, Buildx builders, cross-compilation |
+| [16](16) | Find and fix the vulnerabilities of an old Python image | Intermediate | Vulnerability scanning, base images, dependency updates |
 
 ## Note on security
 
