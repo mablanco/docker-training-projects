@@ -40,7 +40,7 @@ The goal is to find a simple, working solution to the problem as stated. Feature
 | # | Exercise | Level | Concepts | Updated |
 |---|----------|-------|----------|---------|
 | [01](01) | Fix the build of an image of a complete WordPress installation | Beginner | Dockerfile, reading build errors | |
-| [02](02) | Deploy WordPress and MySQL in two containers | Beginner | Official images, networks, environment variables | |
+| [02](02) | Deploy WordPress and MySQL in two containers | Beginner | Official images, networks, volumes, environment variables | ✅ |
 | [03](03) | Orchestrate exercise 02 with Docker Compose | Beginner | Docker Compose | |
 | [04](04) | Deploy a development/testing environment for Magento 2 (to be replaced by Nextcloud) | Advanced | Building a complex PHP app image | |
 | [05](05) | Deploy an Nginx reverse proxy in front of two web servers with different PHP versions | Intermediate | Several images, networks, reverse proxy | |
@@ -64,7 +64,7 @@ New exercises and improvements are welcome. To keep the repository consistent:
 1. Create a directory named with the next number after the last one in the repository.
 2. Add a `README.md` with the problem, the expected deliverables and how to check the solution. Use an existing exercise as a template.
 3. Add any starting files in `src/` and a working solution in `sol/`.
-4. Add a `sol/test.sh` script that builds and runs the solution and fails if it doesn't work, and add the exercise to the matrix in `.github/workflows/exercises.yml`.
+4. Add a `sol/test.sh` script that builds and runs the solution and fails if it doesn't work, and add the exercise to the matrix in `.github/workflows/exercises.yml`. If the solution has Dockerfiles, add their directories to `.github/dependabot.yml` too.
 5. Add the exercise to the index above, with your name and a contact email or URL in parentheses.
 
 Solution Dockerfiles are linted with [hadolint](https://github.com/hadolint/hadolint) using the rules in `.hadolint.yaml`.
