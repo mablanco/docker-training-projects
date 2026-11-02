@@ -49,7 +49,7 @@ The goal is to find a simple, working solution to the problem as stated. Feature
 | [08](08) | Build the image of a Flask app for a development environment | Beginner | Language images, layer caching, bind mounts | ✅ |
 | [09](09) | Deploy a CRUD app based on Flask and Vue.js with Docker Compose in production | Advanced | Multi-stage builds, production servers, reverse proxy, Docker Compose | ✅ |
 | [10](10) | Test the API of the exercise 09 app with Hurl | Intermediate | Tooling images, `ENTRYPOINT` and `CMD`, container networking | ✅ |
-| [11](11) | Design a multi-stage image that builds and runs a simple Go app | Intermediate | Multi-stage builds, minimal images | |
+| [11](11) | Design a multi-stage image that builds and runs a simple Go app | Intermediate | Multi-stage builds, minimal images, non-root users | ✅ |
 
 ## Note on security
 

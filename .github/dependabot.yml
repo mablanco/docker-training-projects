@@ -14,6 +14,7 @@ updates:
       - "/09/sol/client"
       - "/09/sol/server"
       - "/10/sol"
+      - "/11/sol"
     schedule:
       interval: "weekly"
   - package-ecosystem: "pip"
