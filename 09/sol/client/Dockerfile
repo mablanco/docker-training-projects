@@ -9,7 +9,7 @@ RUN sed -i 's|http://localhost:5001|/api|' src/components/*.vue && \
     npm run build
 
 # Final stage: only Nginx and the compiled files.
-FROM nginx:1.30.6-alpine3.24
+FROM nginx:1.31.8-alpine3.24
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /app/dist /usr/share/nginx/html
 EXPOSE 80
