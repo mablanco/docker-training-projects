@@ -1,5 +1,5 @@
 # A current, minimal base image: fewer packages, fewer vulnerabilities
-FROM python:3.15.2-alpine3.24
+FROM python:3.16.0a1-alpine3.24
 WORKDIR /app
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1
