@@ -9,6 +9,7 @@ updates:
   # when it is updated, as in the CI matrix.
   - package-ecosystem: "docker"
     directories:
+      - "/05/sol/*"
       - "/06/sol"
       - "/07/sol"
       - "/08/sol"
@@ -18,6 +19,11 @@ updates:
       - "/11/sol"
     schedule:
       interval: "weekly"
+    ignore:
+      # Exercise 05 compares two specific PHP versions, so dependabot must
+      # not move one onto the other. Changing them is done by hand.
+      - dependency-name: "php"
+        update-types: ["version-update:semver-major", "version-update:semver-minor"]
   - package-ecosystem: "pip"
     directories:
       - "/08/src"
