@@ -24,6 +24,7 @@ jobs:
           - '02'
           - '03'
           - '06'
+          - '09'
     steps:
       - uses: actions/checkout@v7
 
