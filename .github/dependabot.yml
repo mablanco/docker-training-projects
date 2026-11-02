@@ -12,6 +12,7 @@ updates:
       - "/06/sol"
       - "/09/sol/client"
       - "/09/sol/server"
+      - "/10/sol"
     schedule:
       interval: "weekly"
   - package-ecosystem: "docker-compose"

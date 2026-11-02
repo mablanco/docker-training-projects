@@ -48,7 +48,7 @@ The goal is to find a simple, working solution to the problem as stated. Feature
 | [07](07) | Build an Apache web server image with PHP support | Beginner | Dockerfile, volumes | |
 | [08](08) | Build the image of a Flask app for a development environment | Beginner | Language images, dependencies | |
 | [09](09) | Deploy a CRUD app based on Flask and Vue.js with Docker Compose in production | Advanced | Multi-stage builds, production servers, reverse proxy, Docker Compose | ✅ |
-| [10](10) | Test the endpoints of the exercise 09 app (moving from pyresttest to Hurl) | Intermediate | Tooling images, testing APIs | |
+| [10](10) | Test the API of the exercise 09 app with Hurl | Intermediate | Tooling images, `ENTRYPOINT` and `CMD`, container networking | ✅ |
 | [11](11) | Design a multi-stage image that builds and runs a simple Go app | Intermediate | Multi-stage builds, minimal images | |
 
 ## Note on security
