@@ -18,6 +18,8 @@ updates:
       - "/09/sol/server"
       - "/10/sol"
       - "/11/sol"
+      - "/12/src"
+      - "/12/sol"
     schedule:
       interval: "weekly"
     ignore:
