@@ -52,6 +52,7 @@ The goal is to find a simple, working solution to the problem as stated. Feature
 | [11](11) | Design a multi-stage image that builds and runs a simple Go app | Intermediate | Multi-stage builds, minimal images, non-root users |
 | [12](12) | Make an Nginx image run without root, capabilities or a writable filesystem | Intermediate | Non-root users, read-only filesystems, Linux capabilities |
 | [13](13) | Use a token during a build without leaving it in the image | Intermediate | BuildKit build secrets, build arguments, image history |
+| [14](14) | Speed up the build of a Node.js app | Intermediate | Layer caching, `.dockerignore`, BuildKit cache mounts, production dependencies |
 
 ## Note on security
 

@@ -1,0 +1,11 @@
+# Dependencies are installed in the image, never copied from your machine
+node_modules
+npm-debug.log*
+
+# Files that the image does not need
+.git
+.gitignore
+.dockerignore
+Dockerfile
+*.md
+run.sh
