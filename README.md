@@ -39,7 +39,7 @@ The goal is to find a simple, working solution to the problem as stated. Feature
 
 | # | Exercise | Level | Concepts | Updated |
 |---|----------|-------|----------|---------|
-| [01](01) | Fix the build of an image of a complete WordPress installation | Beginner | Dockerfile, reading build errors | |
+| [01](01) | Fix the build of an image of a complete WordPress installation | Beginner | Dockerfile, image layers, reading build errors | ✅ |
 | [02](02) | Deploy WordPress and MySQL in two containers | Beginner | Official images, networks, volumes, environment variables | ✅ |
 | [03](03) | Orchestrate exercise 02 with Docker Compose | Beginner | Docker Compose, healthchecks | ✅ |
 | [04](04) | Deploy a development/testing environment for Magento 2 (to be replaced by Nextcloud) | Advanced | Building a complex PHP app image | |

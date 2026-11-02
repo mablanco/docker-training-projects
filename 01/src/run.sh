@@ -1,5 +1,5 @@
-#!/bin/bash
-set -e
-docker build -t wordpress .
-docker images | grep wordpress
-docker run --name wordpress --rm -d -p 8001:80 wordpress
+#!/usr/bin/env bash
+set -euo pipefail
+cd "$(dirname "$0")"
+docker build -t wordpress-allinone .
+docker run --name wordpress-allinone -d -p 8001:80 wordpress-allinone
