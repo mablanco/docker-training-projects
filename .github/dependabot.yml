@@ -10,10 +10,13 @@ updates:
   - package-ecosystem: "docker"
     directories:
       - "/06/sol"
+      - "/09/sol/client"
+      - "/09/sol/server"
     schedule:
       interval: "weekly"
   - package-ecosystem: "docker-compose"
     directories:
       - "/03/sol"
+      - "/09/sol"
     schedule:
       interval: "weekly"

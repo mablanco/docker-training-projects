@@ -1,11 +1,15 @@
-FROM node:8-alpine
-RUN apk add --update --no-cache subversion && \
-    rm -rf /var/cache/apk/*
+# Build stage: compile the Vue app into static files.
+FROM node:24.22.2-alpine3.24 AS build
+ADD https://github.com/testdrivenio/flask-vue-crud.git#be91da59a10d07384537c2f76f4505eb344d1682:client /app
 WORKDIR /app
-RUN svn export --trust-server-cert --non-interactive https://github.com/testdrivenio/flask-vue-crud/trunk/client
-WORKDIR /app/client
-RUN grep -r -H "localhost:5000" * | cut -f 1 -d ":" | xargs sed -i 's/localhost\:5000/localhost:8000/g'
-RUN npm install
-EXPOSE 8080
-ENV HOST='0.0.0.0'
-CMD ["npm", "run", "serve"]
+# The app calls the API at http://localhost:5001. Point it to /api on the
+# same origin instead, which Nginx forwards to the server.
+RUN sed -i 's|http://localhost:5001|/api|' src/components/*.vue && \
+    npm ci && \
+    npm run build
+
+# Final stage: only Nginx and the compiled files.
+FROM nginx:1.30.6-alpine3.24
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /app/dist /usr/share/nginx/html
+EXPOSE 80

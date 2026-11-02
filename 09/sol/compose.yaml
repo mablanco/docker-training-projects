@@ -1,0 +1,15 @@
+name: flask-vue-crud
+
+services:
+  server:
+    build: server
+    # No published ports: only the client reaches it, through Nginx.
+    restart: unless-stopped
+
+  client:
+    build: client
+    ports:
+      - "8080:80"
+    depends_on:
+      - server
+    restart: unless-stopped
