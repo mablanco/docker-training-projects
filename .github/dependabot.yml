@@ -22,6 +22,8 @@ updates:
       - "/12/sol"
       - "/13/src/app"
       - "/13/sol"
+      - "/14/src"
+      - "/14/sol"
     schedule:
       interval: "weekly"
     ignore:
@@ -34,6 +36,11 @@ updates:
   - package-ecosystem: "pip"
     directories:
       - "/08/src"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "npm"
+    directories:
+      - "/14/src"
     schedule:
       interval: "weekly"
   - package-ecosystem: "docker-compose"
