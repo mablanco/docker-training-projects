@@ -46,7 +46,7 @@ The goal is to find a simple, working solution to the problem as stated. Feature
 | [05](05) | Deploy an Nginx reverse proxy in front of two web servers with different PHP versions | Intermediate | Several images, networks, reverse proxy | |
 | [06](06) | Build a monitoring image that runs `atop` in the host PID namespace | Intermediate | Namespaces, `--pid host` | ✅ |
 | [07](07) | Build an Apache web server image with PHP support | Beginner | Dockerfile, volumes | |
-| [08](08) | Build the image of a Flask app for a development environment | Beginner | Language images, dependencies | |
+| [08](08) | Build the image of a Flask app for a development environment | Beginner | Language images, layer caching, bind mounts | ✅ |
 | [09](09) | Deploy a CRUD app based on Flask and Vue.js with Docker Compose in production | Advanced | Multi-stage builds, production servers, reverse proxy, Docker Compose | ✅ |
 | [10](10) | Test the API of the exercise 09 app with Hurl | Intermediate | Tooling images, `ENTRYPOINT` and `CMD`, container networking | ✅ |
 | [11](11) | Design a multi-stage image that builds and runs a simple Go app | Intermediate | Multi-stage builds, minimal images | |
@@ -64,7 +64,7 @@ New exercises and improvements are welcome. To keep the repository consistent:
 1. Create a directory named with the next number after the last one in the repository.
 2. Add a `README.md` with the problem, the expected deliverables and how to check the solution. Use an existing exercise as a template.
 3. Add any starting files in `src/` and a working solution in `sol/`.
-4. Add a `sol/test.sh` script that builds and runs the solution and fails if it doesn't work, and add the exercise to the matrix in `.github/workflows/exercises.yml`. If the solution has Dockerfiles or Compose files, add their directories to `.github/dependabot.yml` too.
+4. Add a `sol/test.sh` script that builds and runs the solution and fails if it doesn't work, and add the exercise to the matrix in `.github/workflows/exercises.yml`. If the exercise has Dockerfiles, Compose files or dependency files, add their directories to `.github/dependabot.yml` too.
 5. Add the exercise to the index above, with your name and a contact email or URL in parentheses.
 
 Solution Dockerfiles are linted with [hadolint](https://github.com/hadolint/hadolint) using the rules in `.hadolint.yaml`.
