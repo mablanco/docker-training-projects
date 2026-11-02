@@ -1,17 +1,20 @@
 #!/usr/bin/env bash
-set -e
-echo "*** Deploying web infrastructure"
-echo; echo "** Building PHP5 image"
-docker build -t local/php5:latest php5
-echo; echo "** Building PHP7 image"
-docker build -t local/php7:latest php7
-echo; echo "** Building NGINX image"
-docker build -t local/nginx:latest nginx
-echo; echo "** Launching PHP5 container"
-docker run --rm --name php5 -d local/php5
-echo; echo "** Launching PHP7 container"
-docker run --rm --name php7 -d local/php7
-echo; echo "** Launching NGINX container"
-docker run --rm --name proxy --link php5:php5 --link php7:php7 -p 80:80 -d local/nginx
-echo; echo "Now go and open http://php5 and http://php7 in your browser"
-echo; echo "*** Done!"
+# Builds the three images and runs them on a user-defined network: two PHP
+# web servers and an Nginx reverse proxy in front of them.
+set -euo pipefail
+cd "$(dirname "$0")"
+
+echo "*** Building the images"
+docker build -t local/php83 php83
+docker build -t local/php85 php85
+docker build -t local/proxy nginx
+
+echo "*** Starting the containers"
+docker network create php-proxy
+docker run -d --name php83 --network php-proxy local/php83
+docker run -d --name php85 --network php-proxy local/php85
+# Started last: Nginx resolves the names in proxy_pass when it starts, so
+# the PHP containers must already exist.
+docker run -d --name proxy --network php-proxy -p 8005:80 local/proxy
+
+echo "*** Done. Open http://php83.localhost:8005 and http://php85.localhost:8005"

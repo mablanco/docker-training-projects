@@ -43,7 +43,7 @@ The goal is to find a simple, working solution to the problem as stated. Feature
 | [02](02) | Deploy WordPress and MySQL in two containers | Beginner | Official images, networks, volumes, environment variables | ✅ |
 | [03](03) | Orchestrate exercise 02 with Docker Compose | Beginner | Docker Compose, healthchecks | ✅ |
 | [04](04) | Deploy a development/testing environment for Magento 2 (to be replaced by Nextcloud) | Advanced | Building a complex PHP app image | |
-| [05](05) | Deploy an Nginx reverse proxy in front of two web servers with different PHP versions | Intermediate | Several images, networks, reverse proxy | |
+| [05](05) | Deploy an Nginx reverse proxy in front of two web servers with different PHP versions | Intermediate | Several images, networks, reverse proxy, virtual hosts | ✅ |
 | [06](06) | Build a monitoring image that runs `atop` in the host PID namespace | Intermediate | Namespaces, `--pid host` | ✅ |
 | [07](07) | Build an Apache web server image with PHP support | Beginner | Writing a Dockerfile, logs, bind mounts | ✅ |
 | [08](08) | Build the image of a Flask app for a development environment | Beginner | Language images, layer caching, bind mounts | ✅ |
