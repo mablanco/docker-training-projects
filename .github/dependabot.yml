@@ -7,7 +7,8 @@ updates:
   # Add the directories of each new exercise with Dockerfiles, Compose
   # files or dependency files here, as in the CI matrix. Left out on
   # purpose: exercise 01, whose Ubuntu base must stay on an LTS release, and
-  # 16/src, which must stay old and vulnerable.
+  # 16/src, which must stay old and vulnerable (its pip entry below ignores
+  # every update).
   - package-ecosystem: "docker"
     directories:
       - "/04/sol"
@@ -50,6 +51,16 @@ updates:
       - "/16/sol"
     schedule:
       interval: "weekly"
+  # Exercise 16's app must stay old and vulnerable, so ignore every update to
+  # it. Security updates ignore which directories are listed, but follow
+  # these rules.
+  - package-ecosystem: "pip"
+    directories:
+      - "/16/src"
+    schedule:
+      interval: "weekly"
+    ignore:
+      - dependency-name: "*"
   - package-ecosystem: "npm"
     directories:
       - "/14/src"
