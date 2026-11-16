@@ -1,4 +1,4 @@
-FROM alpine:3.24.3
+FROM alpine:3.24.4
 
 # The token to download the dataset from the private artifact server
 ARG ARTIFACTS_TOKEN
