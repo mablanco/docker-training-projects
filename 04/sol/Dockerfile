@@ -1,6 +1,6 @@
 # Download and verify the release in a separate stage, so the tarball does
 # not end up in any layer of the final image.
-FROM alpine:3.24.3 AS download
+FROM alpine:3.24.4 AS download
 ARG NEXTCLOUD_VERSION=35.0.2
 ADD --checksum=sha256:dfc7955eaec5621de90e031d10f76006173b3f3e31d5d6e174821d1da14f162d \
     https://download.nextcloud.com/server/releases/nextcloud-${NEXTCLOUD_VERSION}.tar.bz2 /nextcloud.tar.bz2
