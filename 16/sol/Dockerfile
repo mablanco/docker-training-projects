@@ -1,5 +1,8 @@
 # A current, minimal base image: fewer packages, fewer vulnerabilities
 FROM python:3.15.2-alpine3.24
+# Fixes reach Alpine's package repositories before a new base image is
+# published, so upgrade the system packages too
+RUN apk upgrade --no-cache
 WORKDIR /app
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1

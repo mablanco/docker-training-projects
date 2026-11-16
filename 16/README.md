@@ -32,7 +32,7 @@ The fixed `Dockerfile` and `requirements.txt`.
 
 `sol/test.sh` scans the starting image and the reference solution, and checks the solution's app.
 
-New vulnerabilities are published all the time, so the result of a scan changes from one day to the next. If a reference solution stops passing, its base image or its dependencies need updating: that is the lesson of this exercise.
+New vulnerabilities are published all the time, so the result of a scan changes from one day to the next. If a reference solution stops passing, its base image or its dependencies need updating: that is the lesson of this exercise. Sometimes the fix is already in the distribution's package repositories but not yet in any published base image; then the image has to upgrade its system packages when it is built.
 
 ## Hints
 
@@ -40,6 +40,7 @@ New vulnerabilities are published all the time, so the result of a scan changes 
 - Which Python versions are still supported? Look at the [status of Python versions](https://devguide.python.org/versions/).
 - Compare the number of packages of the `python` image variants: the default one, `-slim` and `-alpine`. A package that is not in the image cannot be vulnerable.
 - Does the app use all the packages in `requirements.txt`?
+- Is the newest base image always up to date? Compare its package versions with the ones the distribution's package manager can upgrade to.
 - Flask's development server is not meant for production. While you are at it, use a production server such as Gunicorn, and do not run it as root.
 
 ## Going further
