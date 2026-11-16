@@ -10,7 +10,7 @@ RUN CGO_ENABLED=0 GOOS=$TARGETOS GOARCH=$TARGETARCH go build -o /hello .
 
 # The final stage uses the image of the target platform. It only copies
 # files, so it does not need emulation either.
-FROM alpine:3.24.3
+FROM alpine:3.24.4
 COPY --from=build /hello /usr/local/bin/hello
 USER 65534:65534
 CMD ["hello"]
