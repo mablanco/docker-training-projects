@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM alpine:3.24.3
+FROM alpine:3.24.4
 
 # The token is mounted only while this RUN instruction runs, as an
 # environment variable, and is not stored in any layer or in the history
