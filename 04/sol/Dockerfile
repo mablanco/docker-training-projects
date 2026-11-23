@@ -7,7 +7,7 @@ ADD --checksum=sha256:dfc7955eaec5621de90e031d10f76006173b3f3e31d5d6e174821d1da1
 RUN tar -xjf /nextcloud.tar.bz2 \
  && mkdir /nextcloud/data
 
-FROM php:8.4.27-apache-trixie
+FROM php:8.4.28RC1-apache-trixie
 
 # PHP extensions required and recommended by Nextcloud. The installer also
 # installs the libraries they need and removes the build dependencies.
