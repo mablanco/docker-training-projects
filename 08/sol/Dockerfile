@@ -1,4 +1,4 @@
-FROM python:3.15.0-alpine3.24
+FROM python:3.15.2-alpine3.24
 WORKDIR /app
 
 # Don't write .pyc files into the mounted code (they would belong to root on
