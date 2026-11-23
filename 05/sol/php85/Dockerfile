@@ -1,2 +1,2 @@
-FROM php:8.5.12-apache
+FROM php:8.5.13-apache
 COPY index.php /var/www/html/
